@@ -1,0 +1,12 @@
+state_verbose: False
+
+file_client: local
+
+fileserver_backend:
+  - git
+
+gitfs_provider: gitpython
+
+gitfs_remotes:
+  - https://github.com/stackstrap/formula.git
+  - https://github.com/stackstrap/base.git
