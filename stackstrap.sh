@@ -2,8 +2,7 @@
 
 cd /tmp
 
-wget -O install_salt.sh https://raw.githubusercontent.com/stackstrap/salt-bootstrap/fork/bootstrap-salt.sh
-sudo sh install_salt.sh
+curl -L https://raw.githubusercontent.com/stackstrap/salt-bootstrap/fork/bootstrap-salt.sh | sudo sh -s -- git develop
 
 wget https://raw.githubusercontent.com/stackstrap/boot/master/files/minion
 cp minion /etc/salt/minion
