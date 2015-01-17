@@ -8,5 +8,4 @@ fileserver_backend:
 gitfs_provider: gitpython
 
 gitfs_remotes:
-  - https://github.com/stackstrap/formula.git
   - https://github.com/stackstrap/environment.git
