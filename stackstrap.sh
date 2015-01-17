@@ -5,7 +5,7 @@ cd /tmp
 curl -L https://raw.githubusercontent.com/stackstrap/salt-bootstrap/fork/bootstrap-salt.sh | sudo sh -s -- git develop
 
 wget https://raw.githubusercontent.com/stackstrap/install/master/files/minion
-cp minion /etc/salt/minion
+mv minion /etc/salt/minion
 
 apt-get install git-python
 apt-get install python-pip
