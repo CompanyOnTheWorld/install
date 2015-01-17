@@ -7,8 +7,8 @@ mv minion /etc/salt/minion
 
 apt-get install -y python-git 
 apt-get install -y python-virtualenv
+apt-get install -y python-setuptools
 
-pip install --upgrade pip 
 pip install hjson
 
 sudo salt-call state.highstate -l debug
