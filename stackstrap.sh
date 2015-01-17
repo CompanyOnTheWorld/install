@@ -2,8 +2,6 @@
 
 cd /tmp
 
-curl -L ${CM_BOOTSTRAP} | sudo sh -s -- git ${CM_VERSION}
-
 wget https://raw.githubusercontent.com/stackstrap/install/master/files/minion
 mv minion /etc/salt/minion
 
