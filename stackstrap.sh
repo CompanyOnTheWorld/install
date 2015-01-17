@@ -7,4 +7,8 @@ curl -L https://raw.githubusercontent.com/stackstrap/salt-bootstrap/fork/bootstr
 wget https://raw.githubusercontent.com/stackstrap/install/master/files/minion
 cp minion /etc/salt/minion
 
+apt-get install git-python
+apt-get install python-pip
+pip install hjson
+
 sudo salt-call state.highstate -l debug
