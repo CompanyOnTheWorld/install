@@ -4,8 +4,9 @@ cd /tmp
 
 wget https://raw.githubusercontent.com/stackstrap/install/master/files/minion
 mv minion /etc/salt/minion
+mv files/srv /srv
 
-apt-get install -y python-git 
+apt-get install -y python-git
 apt-get install -y python-virtualenv
 apt-get install -y python-setuptools
 
