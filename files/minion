@@ -10,7 +10,7 @@ gitfs_provider: gitpython
 
 file_roots:
   base:
-    - /srv/environment
+    - /srv
 
 gitfs_remotes:
   - https://github.com/stackstrap/environment.git

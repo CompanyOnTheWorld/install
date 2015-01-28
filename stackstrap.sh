@@ -3,10 +3,10 @@
 cd /tmp
 
 wget https://raw.githubusercontent.com/stackstrap/install/master/files/minion
-wget https://raw.githubusercontent.com/stackstrap/install/master/files/srv/environment/top.sls
+wget https://raw.githubusercontent.com/stackstrap/install/master/files/srv/top.sls
 mv minion /etc/salt/minion
-mkdir -p /srv/environment
-mv top.sls /srv/environment/.
+mkdir -p /srv
+mv top.sls /srv/.
 
 apt-get install -y python-git
 apt-get install -y python-virtualenv
