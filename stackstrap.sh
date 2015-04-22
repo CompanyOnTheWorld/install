@@ -1,4 +1,24 @@
 #/bin/bash
+for i in "$@"
+do
+case $i in
+    -p=*|--project_config=*)
+    PROJECT_CONFIG="${i#*=}"
+    ;;
+    -s=*|--short_name=*)
+    SHORT_NAME="${i#*=}"
+    ;;
+    --default)
+    DEFAULT=YES
+    ;;
+    *)
+            # unknown option
+    ;;
+esac
+done
+
+echo PROJECT_CONFIG = ${PROJECT_CONFIG}
+echo SHORT_NAME = ${SHORT_NAME}
 
 cd /tmp
 
