@@ -34,3 +34,5 @@ apt-get install -y python-virtualenv
 apt-get install -y unzip
 
 pip install hjson
+
+salt-call state.highstate --retcode-passthrough  --log-level=debug --no-color pillar="${PROJECT_CONFIG}"
