@@ -21,6 +21,7 @@ cd /tmp
 
 apt-get update
 
+apt-get install -y python-pip
 apt-get install -y python-git
 apt-get install -y unzip
 
