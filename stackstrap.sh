@@ -14,7 +14,8 @@ case $i in
 esac
 done
 
-echo PROJECT_CONFIG = ${PROJECT_CONFIG}
+echo "Project:"
+echo "${PROJECT_CONFIG}" | python -m json.tool
 
 cd /tmp
 
