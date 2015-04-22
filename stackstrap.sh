@@ -15,7 +15,7 @@ esac
 done
 
 echo "Project:"
-echo "${PROJECT_CONFIG}" | python -m json.tool
+echo "'${PROJECT_CONFIG}'" | python -m json.tool
 
 cd /tmp
 
