@@ -1,9 +1,13 @@
 #/bin/bash
+BASE_BOX=false
 for i in "$@"
 do
 case $i in
     -p=*|--project_config=*)
     PROJECT_CONFIG="${i#*=}"
+    ;;
+    -b=*|--base_box=*)
+    BASE_BOX=true
     ;;
     --default)
     DEFAULT=YES
@@ -28,12 +32,17 @@ apt-get install -y unzip
 
 pip install hjson
 
-wget https://raw.githubusercontent.com/stackstrap/install/master/salt/minion
-cp minion /etc/salt/minion
-mkdir -p /srv/salt
-wget https://raw.githubusercontent.com/stackstrap/install/master/salt/srv/top.sls
-cp top.sls /srv/salt/top.sls
-wget https://raw.githubusercontent.com/stackstrap/install/master/salt/srv/environment.sls
-cp environment.sls /srv/salt/environment.sls
+if [ BASE_BOX = true ] ; then
+    wget https://raw.githubusercontent.com/stackstrap/install/master/salt/minion
+    cp minion /etc/salt/minion
+    mkdir -p /srv/salt
+    wget https://raw.githubusercontent.com/stackstrap/install/master/salt/srv/top.sls
+    cp top.sls /srv/salt/top.sls
+    wget https://raw.githubusercontent.com/stackstrap/install/master/salt/srv/environment.sls
+    cp environment.sls /srv/salt/environment.sls
 
-salt-call state.highstate --retcode-passthrough  --log-level=debug --no-color pillar="${PROJECT_CONFIG}"
+    salt-call state.highstate --retcode-passthrough  --log-level=debug --no-color
+else
+    salt-call state.highstate --retcode-passthrough  --log-level=debug --no-color pillar="${PROJECT_CONFIG}"
+fi
+
