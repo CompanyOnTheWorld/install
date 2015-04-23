@@ -34,3 +34,11 @@ apt-get install -y python-virtualenv
 apt-get install -y unzip
 
 pip install hjson
+
+wget https://raw.githubusercontent.com/stackstrap/install/master/salt/minion
+cp minion /etc/salt/minion
+mkdir -p /srv/salt
+wget https://raw.githubusercontent.com/stackstrap/install/master/salt/srv/top.sls
+cp top.sls /srv/salt/top.sls
+wget https://raw.githubusercontent.com/stackstrap/install/master/salt/srv/environment.sls
+cp environment.sls /srv/salt/environment.sls
