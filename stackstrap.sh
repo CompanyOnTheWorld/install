@@ -18,9 +18,6 @@ case $i in
 esac
 done
 
-echo "Project:"
-echo "${PROJECT_CONFIG}" | python -m json.tool
-
 cd /tmp
 
 apt-get update
@@ -43,6 +40,8 @@ if [ BASE_BOX = true ] ; then
 
     salt-call state.highstate --retcode-passthrough  --log-level=debug --no-color
 else
+    echo "Project:"
+    echo "${PROJECT_CONFIG}" | python -m json.tool
+
     salt-call state.highstate --retcode-passthrough  --log-level=debug --no-color pillar="${PROJECT_CONFIG}"
 fi
-
