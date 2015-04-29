@@ -6,10 +6,8 @@ case $i in
     -p=*|--project_config=*)
     PROJECT_CONFIG="${i#*=}"
     ;;
-    DEFAULT=YES
-    ;;
     *)
-            # unknown option
+    BASE_BOX=true
     ;;
 esac
 done
@@ -25,7 +23,7 @@ apt-get install -y unzip
 
 pip install hjson
 
-if [ DEFAULT == YES ] ; then
+if [ $BASE_BOX == true ] ; then
     salt-call state.highstate --retcode-passthrough  --log-level=debug --no-color
 else
     echo "Project:"
