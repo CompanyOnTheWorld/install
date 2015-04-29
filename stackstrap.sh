@@ -21,7 +21,7 @@ apt-get install -y unzip
 
 pip install hjson
 
-if [ $BASE_BOX == true ] ; then
+if [ $BASE_BOX ] ; then
     salt-call state.highstate --retcode-passthrough  --log-level=debug --no-color
 else
     echo "Project:"
