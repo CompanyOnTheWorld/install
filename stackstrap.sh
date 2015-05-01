@@ -1,11 +1,9 @@
 #/bin/bash
-BASE_BOX=true
 for i in "$@"
 do
 case $i in
     -p=*|--project_config=*)
     PROJECT_CONFIG="${i#*=}"
-    BASE_BOX=false
     ;;
 esac
 done
@@ -21,11 +19,11 @@ apt-get install -y unzip
 
 pip install hjson
 
-if [ $BASE_BOX ] ; then
-    salt-call state.highstate --retcode-passthrough  --log-level=debug --no-color
-else
+if [ $PROJECT_CONFIG ] ; then
     echo "Project:"
     echo "${PROJECT_CONFIG}" | python -m json.tool
 
     salt-call state.highstate --retcode-passthrough  --log-level=debug --no-color pillar="${PROJECT_CONFIG}"
+else
+    salt-call state.highstate --retcode-passthrough  --log-level=debug --no-color
 fi
