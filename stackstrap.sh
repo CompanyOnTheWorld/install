@@ -21,6 +21,8 @@ pip install hjson
 
 touch /var/log/salt/minion
 
+eval `ssh-agent -s`
+
 if [ $PROJECT_CONFIG ] ; then
     echo "Project:"
     echo "${PROJECT_CONFIG}" | python -m json.tool
