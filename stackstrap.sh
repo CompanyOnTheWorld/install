@@ -19,6 +19,8 @@ apt-get install -y unzip
 
 pip install hjson
 
+touch /var/log/salt/minion
+
 if [ $PROJECT_CONFIG ] ; then
     echo "Project:"
     echo "${PROJECT_CONFIG}" | python -m json.tool
