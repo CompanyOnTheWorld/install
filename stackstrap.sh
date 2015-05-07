@@ -23,7 +23,7 @@ if [ $PROJECT_CONFIG ] ; then
     echo "Project:"
     echo "${PROJECT_CONFIG}" | python -m json.tool
 
-    salt-call state.highstate --retcode-passthrough  --log-level=debug --no-color pillar="${PROJECT_CONFIG}"
+    salt-call state.highstate --retcode-passthrough --out json --log-level=quiet --log-file-level=all pillar="${PROJECT_CONFIG}"
 else
-    salt-call state.highstate --retcode-passthrough  --log-level=debug --no-color
+    salt-call state.highstate --retcode-passthrough --out json --log-level=quiet --log-file-level=all
 fi
