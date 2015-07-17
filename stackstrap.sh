@@ -19,15 +19,13 @@ apt-get install -y unzip
 
 pip install hjson
 
-touch /var/log/salt/minion
-
 eval $(ssh-agent)
 
 if [ $PROJECT_CONFIG ] ; then
     echo "Project:"
     echo "${PROJECT_CONFIG}" | python -m json.tool
 
-    salt-call state.highstate --retcode-passthrough --log-level=quiet --log-file-level=debug --log-file=/var/log/salt/minion pillar="${PROJECT_CONFIG}"
+    salt-call state.highstate --retcode-passthrough --log-level=quiet --log-file-level=debug pillar="${PROJECT_CONFIG}"
 else
-    salt-call state.highstate --retcode-passthrough --log-level=quiet --log-file-level=debug --log-file=/var/log/salt/minion
+    salt-call state.highstate --retcode-passthrough --log-level=quiet --log-file-level=debug
 fi
