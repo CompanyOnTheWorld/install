@@ -24,8 +24,4 @@ eval $(ssh-agent)
 if [ $PROJECT_CONFIG ] ; then
     echo "Project:"
     echo "${PROJECT_CONFIG}" | python -m json.tool
-
-    salt-call state.highstate --retcode-passthrough --log-level=info pillar="${PROJECT_CONFIG}"
-else
-    salt-call state.highstate --retcode-passthrough --log-level=info
 fi
